@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"><!-- utf-16? -->
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+        <form method="POST" action="/students" id="fullForm" onsubmit="return areAllPhonesValid()">
+            <h3> Children </h3>
+            <div class="child">
+                <p>
+                    <label>English Name</label>
+                    <input type="text" name="firstName" placeholder="First" size="15" required/>
+                    <input type="text" name="lastName" placeholder="Last" size="15" required/><br/>
+                </p>
+                <p>
+                    <label>Chinese Name</label>
+                    <input type="text" name="zhName" required/><br/>
+                </p>
+                <p>
+                    <label>Gender</label>
+                    <input type="radio" name="gender" value="Male" required/> Male
+                    <input type="radio" name="gender" value="Female" required/> Female <br />
+                </p>
+                <p>
+                    <label>Date of Birth</label>
+                    <input type="date" name="dob" required/><br/>
+                </p>
+                <p>
+                    <label>Regular School</label>
+                    <input type="text" name="school" required/><br/>
+                </p>
+                <p>	
+                    <label>Grade</label>
+                    <input type="number" name="grade" size="4" required/>
+                    (If not yet in 1st grade, input '0'.)
+                </p>
+            </div><br/>
+            <input type="button" value="Add another child" onclick="addChild()" id="addChildBtn" />
+            <input type="button" value="Remove last child" onclick="removeLastChild()" id="removeLastChildBtn" />
+            <input type="hidden" name="childTotal" id="childTotal" value="1" />
+            <br/>
+            <h3> Parents </h3>
+            <div class="parent">
+                <p>
+                    <label>Name</label>
+                    <input type="text" name="name" required/><br/>
+                </p>
+                <p>
+                    <label>Cell Phone</label>
+                    <input type="tel" name="cell" required/><br/>
+                </p>
+                <p>
+                    <label>Company</label>
+                    <input type="text" name="company" required/><br/>
+                </p>
+                <p>	
+                    <label>E-mail</label>
+                    <input type="email" name="email" required/>
+                </p>
+            </div><br/>
+            <div class="parent">
+                <p>
+                    <label>Name</label>
+                    <input type="text" name="name" required/><br/>
+                </p>
+                <p>
+                    <label>Cell Phone</label>
+                    <input type="tel" name="cell" required/><br/>
+                </p>
+                <p>
+                    <label>Company</label>
+                    <input type="text" name="company" required/><br/>
+                </p>
+                <p>	
+                    <label>E-mail</label>
+                    <input type="email" name="email" required/>
+                </p>
+            </div><br/>
+            <h3> Family Information </h3>
+            <div class="familyInfo">
+                <p>
+                    <label>Home Address</label>
+                    <input type="text" name="address" required/><br/>
+                </p>
+                <p>
+                    <label>Home Phone</label>
+                    <input type="tel" name="homePhone" required/><br/>
+                </p>
+            </div><br/>
+            <label>Parents' Specialty</label>
+            <textarea id="formSpecialty" name="specialty" rows="2" cols="50"></textarea>
+            <h3> Emergency Contact </h3>
+            <div class="emergency">
+                <p>
+                    <label>Contact Name</label>
+                    <input type="text" name="name" required/><br/>
+                </p>
+                <p>
+                    <label>Home Phone</label>
+                    <input type="tel" name="homePhone" required/><br/>
+                </p>
+                <p>
+                    <label>Cell Phone</label>
+                    <input type="tel" name="cell" required/><br/>
+                </p>
+                <p>
+                    <label>Work Phone</label>
+                    <input type="tel" name="work" required/><br/>
+                </p>
+            </div><br/>
+            <input type="submit" value="Submit"/>
+        </form>
+		<script src="client.js"></script>
+  </body>
+</html>
+
+<!-- https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_tel 
+		https://stackoverflow.com/questions/13089182/more-than-1-row-in-input-type-textarea
+        -->
+        
+<!--
+<h3> Children </h3>
+    <form class="child">
+        <p>
+            <label>English Name</label>
+            <input type="text" name="enName"/><br/>
+        </p>
+        <p>
+            <label>Chinese Name</label>
+            <input type="text" name="zhName"/><br/>
+        </p>
+        <p>
+            <label>Gender</label>
+            <input type="radio" name="gender" value="male" /> Male
+            <input type="radio" name="gender" value="female" /> Female <br />
+        </p>
+        <p>
+            <label>Date of Birth</label>
+            <input type="date" name="dob"/><br/>
+        </p>
+        <p>
+            <label>Regular School</label>
+            <input type="text" name="school"/><br/>
+        </p>
+        <p>	
+            <label>Grade</label>
+            <input type="text" name="grade"/>
+        </p>
+    </form><br/>
+    <button type="button" onclick="addChild()" id="addChild">Add another child</button>
+    <br/>
+    <h3> Parents </h3>
+    <form class="parent">
+        <p>
+            <label>Name</label>
+            <input type="text" name="name"/><br/>
+        </p>
+        <p>
+            <label>Cell Phone</label>
+            <input type="text" name="cell"/><br/>
+        </p>
+        <p>
+            <label>Company</label>
+            <input type="text" name="company"/><br/>
+        </p>
+        <p>	
+            <label>E-mail</label>
+            <input type="text" name="email"/>
+        </p>
+    </form><br/>
+    <form class="parent">
+        <p>
+            <label>Name</label>
+            <input type="text" name="name"/><br/>
+        </p>
+        <p>
+            <label>Cell Phone</label>
+            <input type="text" name="cell"/><br/>
+        </p>
+        <p>
+            <label>Company</label>
+            <input type="text" name="company"/><br/>
+        </p>
+        <p>	
+            <label>E-mail</label>
+            <input type="text" name="email"/>
+        </p>
+    </form><br/>
+    <h3> Family Information </h3>
+    <form class="familyInfo">
+        <p>
+            <label>Home Address</label>
+            <input type="text" name="address"/><br/>
+        </p>
+        <p>
+            <label>Home Phone</label>
+            <input type="text" name="homePhone"/><br/>
+        </p>
+    </form><br/>
+    <label>Parents' Specialty</label>
+    <textarea id="formSpecialty" name="specialty" rows="2" cols="50"></textarea>
+    <h3> Emergency Contact </h3>
+    <form class="emergency">
+        <p>
+            <label>Contact Name</label>
+            <input type="text" name="name"/><br/>
+        </p>
+        <p>
+            <label>Home Phone</label>
+            <input type="text" name="homePhone"/><br/>
+        </p>
+        <p>
+            <label>Cell Phone</label>
+            <input type="text" name="homePhone"/><br/>
+        </p>
+        <p>
+            <label>Work Phone</label>
+            <input type="text" name="homePhone"/><br/>
+        </p>
+    </form><br/>
+-->
