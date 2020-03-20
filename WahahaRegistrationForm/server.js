@@ -88,7 +88,7 @@ var transporter = mailer.createTransport({
     service: "gmail",
     auth: {
         user: "rogerwang5040@gmail.com",
-        pass: "setProperty2520"
+        pass: "pw314159"
     }
 });
 function sendEmail(recipient, requestBody, initialMessage){
